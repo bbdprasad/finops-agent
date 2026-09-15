@@ -1,0 +1,8 @@
+.env
+reports/
+cost-report-*.md
+data/**/*.csv
+data/**/*.tsv
+__pycache__/
+*.pyc
+.streamlit/

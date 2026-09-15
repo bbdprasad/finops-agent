@@ -1,0 +1,17 @@
+# Scheduling. Install with: crontab -e
+#
+# Cron does not load your shell profile, so source the env file explicitly and
+# use absolute paths. MAILTO means a non-zero exit (stale data, bad config)
+# reaches you instead of failing silently.
+
+MAILTO=you@example.com
+PROJECT=/home/you/finops-reporter
+
+# Monday 07:00, weekly report
+0 7 * * 1 cd $PROJECT && set -a && . ./.env && set +a && .venv/bin/python run.py --send >> reports/cron.log 2>&1
+
+# 1st of the month 07:00, monthly report
+0 7 1 * * cd $PROJECT && set -a && . ./.env && set +a && .venv/bin/python run.py --send >> reports/cron.log 2>&1
+
+# Daily 06:30, generate only. Catches breakage before a send day.
+30 6 * * * cd $PROJECT && set -a && . ./.env && set +a && .venv/bin/python run.py >> reports/cron.log 2>&1
