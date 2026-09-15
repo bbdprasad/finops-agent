@@ -214,6 +214,9 @@ look.
 - Amortised against actual depends on which export you feed it. Use amortised for
   trend reporting, and be consistent
 
+  <img width="959" height="445" alt="image" src="https://github.com/user-attachments/assets/850481d0-0964-4d2c-b3fa-0bc0d8de51cc" />
+
+
 ## Next, in order of payback
 
 1. **Recommendation outcome tracking.** Accepted, rejected with reason,
